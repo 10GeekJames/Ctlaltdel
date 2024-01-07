@@ -1,0 +1,185 @@
+version: "3.9"
+networks:
+  ctlaltdel-network:
+    name: commonspaces
+    driver: bridge
+    external: true
+
+services:
+  ctlaltdel-shared-base:
+    networks:
+    - ctlaltdel-network
+    volumes:
+      - $APPDATA/Microsoft/UserSecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+      - $HOME/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+    build:
+      context: ./
+      dockerfile: ./build/local-shared-base/Dockerfile    
+    image: local:ctlaltdel-shared-base
+  
+  id-ctlaltdel:
+    networks:
+    - ctlaltdel-network
+    volumes:
+      - $APPDATA/Microsoft/UserSecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+      - $HOME/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: ./src/++Identity/SecondTab.Identity/src/SecondTab.Identity.STS.Identity/Dockerfile
+    ports:
+      - "7843:7843"
+    depends_on:
+      - ctlaltdel-shared-base
+    environment:
+      - VIRTUAL_HOST=id.ctlaltdel.com:7843
+      - 'AdminConfiguration__IdentityAdminBaseUrl=https://id.ctlaltdel.com'
+      - 'AdvancedConfiguration__IssuerUri=https://id.ctlaltdel.com'
+      - DockerConfiguration__UpdateCaCertificate=true
+      - ASPNETCORE_ENVIRONMENT=Development
+  
+  #signal-redis:
+  #  image: redis:6.2-alpine
+  #  networks:
+  #  - ctlaltdel-network
+  #  restart: always
+  #  ports:
+  #    - '7882:7882'
+  #  command: redis-server --save 20 1 --loglevel warning --requirepass lkjklsajki32kl2j3jlk2j34lk23j4lk23j4
+  #  volumes: 
+  #    - cache:/data
+  
+  signal-ctlaltdel:
+    networks:
+    - ctlaltdel-network
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: 5
+        max-size: 10m
+    volumes:
+      - $APPDATA/Microsoft/UserSecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+      - $HOME/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+    build:
+      context: ./
+      dockerfile: ./src/++SignalR/SecondTab.Signal/src/Dockerfile
+    ports:
+      - "7879:7879"
+    depends_on:
+      - ctlaltdel-shared-base
+      - id-ctlaltdel
+  
+  account-ctlaltdel:
+    networks:
+    - ctlaltdel-network
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: 5
+        max-size: 10m
+    volumes:
+      - $APPDATA/Microsoft/UserSecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+      - $HOME/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+    build:
+      context: ./
+      dockerfile: ./src/+Modules/Required/AccountModule/+Api/+AccountModuleApi/src/Dockerfile
+    ports:
+      - "7849:7849"
+    depends_on:
+      - ctlaltdel-shared-base
+      - id-ctlaltdel
+  
+  financial-ctlaltdel:
+    networks:
+    - ctlaltdel-network
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: 5
+        max-size: 10m
+    volumes:
+      - $APPDATA/Microsoft/UserSecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+      - $HOME/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+    build:
+      context: ./
+      dockerfile: ./src/+Modules/Required/FinancialModule/+Api/+FinancialModuleApi/src/Dockerfile
+    ports:
+      - "7854:7854"
+    depends_on:
+      - ctlaltdel-shared-base
+      - id-ctlaltdel
+  
+  liveroom-ctlaltdel:
+    networks:
+    - ctlaltdel-network
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: 5
+        max-size: 10m
+    volumes:
+      - $APPDATA/Microsoft/UserSecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+      - $HOME/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+    build:
+      context: ./
+      dockerfile: ./src/+Modules/Required/LiveRoomModule/+Api/+LiveRoomModuleApi/src/Dockerfile
+    ports:
+      - "7851:7851"
+    depends_on:
+      - ctlaltdel-shared-base
+      - id-ctlaltdel
+      - account-ctlaltdel
+  
+  lpmod-ctlaltdel:
+    networks:
+    - ctlaltdel-network
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: 5
+        max-size: 10m
+    volumes:
+      - $APPDATA/Microsoft/UserSecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+      - $HOME/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l
+    build:
+      context: ./
+      dockerfile: ./src/+Modules/Lazy/LivePollingModule/+Api/+LpmodApi/src/Dockerfile
+    ports:
+      - "7881:7881"
+    depends_on:
+      - ctlaltdel-shared-base
+      - id-ctlaltdel
+
+  app-ctlaltdel-blazor-server:
+    networks:
+    - ctlaltdel-network
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: 5
+        max-size: 10m
+    volumes:
+      - type: bind
+        source: $APPDATA/Microsoft/UserSecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l/
+        target: /root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l/        
+      #- $HOME/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:/root/.microsoft/usersecrets/c11a1d31-cd3l-cd3l-cd3l-c11a1d31cd3l:ro
+    build:
+      context: ./
+      dockerfile: ./src/UI/Server/SecondTab.BlazorServer/src/Dockerfile
+    ports:
+      - "7840:7840"
+    depends_on:
+      - ctlaltdel-shared-base
+      - id-ctlaltdel
+      - account-ctlaltdel
+      - liveroom-ctlaltdel
+      - lpmod-ctlaltdel
+#volumes:
+#  cache:
+#    driver: local
