@@ -24,7 +24,7 @@ public class Level
         for (var x = 0; x < WidthX; x++)
         {
             for (var y = 0; y < DepthY; y++) {
-                _rooms.Add(new Room(new System.Drawing.Point(x,y)));
+                _rooms.Add(new Room(new Point(x,y)));
             }
         }
     }

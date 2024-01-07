@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using System.Text;
-using Ctlaltdel.Models;
+﻿
 
 // all games need a game loop!
 
@@ -51,8 +49,8 @@ string DrawMap()
     {
         for (var y = 0; y < level.DepthY; y++)
         {
-            var room = level.Rooms.FirstOrDefault(rs => rs.Point.X == x && rs.Point.Y == y);
-            if (player.Position.X == x && player.Position.Y == y)
+            var room = level.Rooms.FirstOrDefault(rs => rs.Location.X == x && rs.Location.Y == y);
+            if (player.Location.X == x && player.Location.Y == y)
             {
                 visualMap.Append("x ");
             }
@@ -73,15 +71,15 @@ string DrawMap()
 string AttemptToMove(int x, int y)
 {
     var errorMessage = "";
-    var currentRoom = level.Rooms.SingleOrDefault(rs => rs.Point.X == player.Position.X && rs.Point.Y == player.Position.Y);
-    var nextRoom = level.Rooms.SingleOrDefault(rs => rs.Point.X == player.Position.X + x && rs.Point.Y == player.Position.Y + y);
+    var currentRoom = level.Rooms.SingleOrDefault(rs => rs.Location.X == player.Location.X && rs.Location.Y == player.Location.Y);
+    var nextRoom = level.Rooms.SingleOrDefault(rs => rs.Location.X == player.Location.X + x && rs.Location.Y == player.Location.Y + y);
     if (nextRoom is null || !nextRoom.IsPassable)
     {
         errorMessage = "Cannot move that direction, -1hp";
     }
     else
     {
-        player.MovePosition(x, y);
+        player.MoveLocation(x, y);
     }
     return errorMessage;
 }
