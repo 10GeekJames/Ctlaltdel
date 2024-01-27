@@ -12,13 +12,37 @@ Adventure One
 The Dragon's Quest - CLI
 
 
-### Mini-Adventure 1: A world is born
+### Mini-Adventure 0: Warm Up Round
 
-**Objective**: Create an in-memory space for future characters to walk around in.
+**Objective**: By the end of this engagement you will accept variables and make a simple loop
+
+**Bonus**
+Incorporate walls, not allow your character to walk off the map (or have them pop up on the other side of the map)
+Add a description of the space to demonstrate when visited
 
 **Tasks**:
+- Add a simple game loop
 - Create an in-memory representation of a single-floor physical space.
 - Introduce walls, travel concepts, and descriptions.
+- Add a character representation
+- Allow for character movement and feedback to the users
+
+**Concepts Introduced**: Basic engineering concepts, in-memory data structures, and meta-information about real-world objects in memory.
+
+### Mini-Adventure 1: A world is born
+
+**Objective**: By the end of this engagement you will have created and demonstrated a space and simply character walking around.
+
+**Bonus**
+Incorporate walls, not allow your character to walk off the map (or have them pop up on the other side of the map)
+Add a description of the space to demonstrate when visited
+
+**Tasks**:
+- Add a simple game loop
+- Create an in-memory representation of a single-floor physical space.
+- Introduce walls, travel concepts, and descriptions.
+- Add a character representation
+- Allow for character movement and feedback to the users
 
 **Concepts Introduced**: Basic engineering concepts, in-memory data structures, and meta-information about real-world objects in memory.
 
