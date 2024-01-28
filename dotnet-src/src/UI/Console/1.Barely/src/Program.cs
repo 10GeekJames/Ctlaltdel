@@ -16,6 +16,9 @@ for (var x = 0; x < 20; x++)
     }
 }
 
+
+var playerNumber = 1;
+
 var player = new Player();
 player.Location = new Point(10, 10);
 
