@@ -1,0 +1,15 @@
+Kim's
+I am writing a C# code to roll a die and output the result. It needs to be capable of doing the following while running in the console
+Collect a username, 
+validate the username, 
+can change username as desired
+Ask how many sides the die has making sure it is either 4,6,8,10,12,20, or 100
+Roll the die
+Display the result and which die was used
+Ask if they want to roll again. accept the whole words like "yes" and "no" as well as letters such as "y" or "n". Allow for upper or lower case
+If input is "yes" or "y", roll the same die again 
+If input is "no" or "n", have the user input the die number making sure it is either 4,6,8,10,12,20, or 100
+At the start, tell the user for them to exit the application, they can input "exit" or "x" then the application will exit 
+The application will exit by the input of "exit" or "x"
+
+
