@@ -1,0 +1,36 @@
+Creating a rock, paper, scissors console app can be straightforward, but there are some challenges you might encounter during development. Here are common hardships and how to address them:
+
+User Input Validation:
+  Ensuring that the user enters valid input (rock, paper, or scissors) can be tricky.
+Solution: 
+  Implement input validation by checking if the user’s choice matches the valid options. Prompt the user to try again if the input is invalid.
+Game Logic and Rules:
+  Implementing the game rules (which choice beats which) requires careful coding.
+Solution: 
+  Create a clear decision tree or use switch statements to handle different scenarios (e.g., rock beats scissors).
+Random Computer Choice:
+  Generating a random choice for the computer (rock, paper, or scissors) can be challenging.
+Solution: 
+  Use a random number generator to select the computer’s choice. Map the random number to the corresponding option.
+Looping for Multiple Rounds:
+  Allowing the user to play multiple rounds and keeping track of scores can be complex.
+Solution: 
+  Use loops (e.g., while or do-while) to repeat the game until the user decides to quit. Maintain a score counter.
+User Experience:
+  Designing a user-friendly interface in the console can be limiting.
+Solution: 
+  Provide clear instructions, display the user’s choice, and announce the winner. Consider adding ASCII art for fun.
+Ties and Edge Cases:
+  Handling ties (when both the player and computer choose the same option) and edge cases (invalid input) requires attention.
+Solution: 
+  Account for ties in your game logic. Handle unexpected input gracefully (e.g., prompt the user to choose again).
+Testing and Debugging:
+  Ensuring that the game works correctly under various scenarios can be time-consuming.
+Solution: 
+  Test different combinations (rock vs. paper, paper vs. scissors, etc.) and debug any issues.
+Scalability and Extensibility:
+  If you want to expand the game (e.g., add lizard and Spock), consider how to structure your code for future enhancements.
+Solution: 
+  Use functions or classes to encapsulate game logic. Plan for easy additions of new choices.
+  
+Remember that overcoming these challenges is part of the learning process, and each hurdle you tackle will improve your programming skills. Happy coding! 😊

@@ -1,62 +1,4 @@
-Rock, paper, scissors game based on C# code
-
-Computer picks one from rock, paper, or scissors
-Person chooses rock, paper, or scissors
-
-Then based on options below a winner is known and display
-
-options
-1. rock wins, scissors loses
-2. paper wins, rock loses
-3. scissors wins, paper loses
-
-
-Chat gpt answer:
-
-
-using System;
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        // Options
-        string[] options = { "rock", "paper", "scissors" };
-
-        // Generate a random number to represent computer's choice
-        Random rand = new Random();
-        int computerChoiceIndex = rand.Next(0, 3);
-        string computerChoice = options[computerChoiceIndex];
-
-        // Ask the user for their choice
-        Console.WriteLine("Enter your choice (rock, paper, or scissors):");
-        string userChoice = Console.ReadLine().ToLower();
-
-        // Display choices
-        Console.WriteLine($"You chose: {userChoice}");
-        Console.WriteLine($"Computer chose: {computerChoice}");
-
-        // Determine the winner
-        string result = "";
-        if (userChoice == computerChoice)
-        {
-            result = "It's a tie!";
-        }
-        else if ((userChoice == "rock" && computerChoice == "scissors") ||
-                 (userChoice == "paper" && computerChoice == "rock") ||
-                 (userChoice == "scissors" && computerChoice == "paper"))
-        {
-            result = "You win!";
-        }
-        else
-        {
-            result = "Computer wins!";
-        }
-
-        // Display the result
-        Console.WriteLine(result);
-    }
-}
+// Random flavors of language - do on purpose
 
 GPT Question:
 
@@ -170,7 +112,7 @@ class Program
 
 
 Input to ChatGPT:
-Same code but with more flavor language 
+More flavor  
 
 OutPut from ChatGPT:
 

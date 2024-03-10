@@ -1,0 +1,29 @@
+// Get player's choice
+// Generate computer's choice
+// Determine the winner
+// Display the choices and the result
+
+
+Invalid Input:
+  Edge Case: The user enters a choice that is not Rock, Paper, or Scissors.
+  Handling: Provide feedback to the user about the invalid input and prompt them to enter a valid choice.
+
+Tie Scenario:
+  Edge Case: The player and the computer make the same choice.
+  Handling: Clearly communicate that it's a tie and may prompt for a rematch.
+  
+Random Number Generation:
+  Edge Case: The random number generator produces unexpected values.
+  Handling: Ensure that the random number generator is well-implemented and produces values within the specified range.
+
+User Interaction:
+  Edge Case: The player doesn't make a choice or enters an empty string.
+  Handling: Prompt the user again to make a valid choice.
+  
+Unusual Choices:
+  Edge Case: The program receives unexpected choices (e.g., "Spock" or "Lizard" in an extended version of the game).
+  Handling: Provide clear feedback that the input is not recognized and prompt the user to enter a valid choice.
+
+Non-English Input:
+  Edge Case: The player enters a choice in a language other than the one expected.
+  Handling: Specify the language for input or handle different language inputs gracefully, providing translations if necessary.

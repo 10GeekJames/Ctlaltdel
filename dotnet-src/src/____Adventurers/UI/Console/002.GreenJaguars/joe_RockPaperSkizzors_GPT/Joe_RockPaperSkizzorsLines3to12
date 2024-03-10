@@ -1,0 +1,10 @@
+Write C# code to do the following in a game of Rock Paper Scissors start the game
+Prompt user with what to do
+create possible table
+ask user for input
+error check input
+create random response for computer
+compare user input to computer response
+determine win or loses or ties
+display result
+Ask Restart, quit

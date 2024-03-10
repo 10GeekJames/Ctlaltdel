@@ -1,0 +1,24 @@
+QUERY - what are the different steps I need to take to write a C# code for rock paper scissors
+
+start the game
+Prompt user with what to do
+create possible table
+ask user for input
+error check input
+create random response for computer
+compare user input to computer response
+determine win or loses or ties
+display result
+Ask Restart, quit -
+
+
+Game has started
+User has been prompted to choose Rock, Paper, or Scissors
+Possible outcomes have been allocated (Rock > Scissors, Paper > Rock, Scissors > Paper)
+User has been asked to choose Rock, Paper, or Scissors
+Input has been checked to be one of the possible answers ((r)ock,(p)aper,(s)cissors) the whole word or just the started letter works
+Random Choice has been made by computer (rock,paper,scissors)
+User's Input and Computers choice has been compared
+Winner has been chosen based on comparison (Win, Loss, Tie)
+Result has been displayed
+User has been asked if they want to play again or quit

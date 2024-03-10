@@ -1,0 +1,24 @@
+QUERY - what are the different steps I need to take to write a C# code for rock paper scissors
+
+start the game
+Prompt user with what to do
+create possible table
+ask user for input
+error check input
+create random response for computer
+compare user input to computer response
+determine win or loses or ties
+display result
+Ask Restart, quit -
+
+
+start the game
+Prompt user with what to do
+create possible table
+ask user for input
+error check input
+create random response for computer
+compare user input to computer response
+determine win or loses or ties
+display result
+Ask Restart, quit -

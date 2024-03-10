@@ -96,5 +96,3 @@ class DiceRollerGame
         return Console.ReadLine().ToLower();
     }
 }
-
-
