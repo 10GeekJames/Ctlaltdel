@@ -1,0 +1,69 @@
+Certainly! Here's a C# code snippet that fulfills the requirements you've outlined:
+
+csharp
+Copy code
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        while (true)
+        {
+            Console.WriteLine("Rock, Paper, Scissors Game has started!");
+            Console.WriteLine("Choose Rock (r), Paper (p), or Scissors (s): ");
+
+            string userChoice = Console.ReadLine()?.ToLower();
+
+            // Input validation
+            while (!(userChoice == "r" || userChoice == "p" || userChoice == "s" ||
+                     userChoice == "rock" || userChoice == "paper" || userChoice == "scissors"))
+            {
+                Console.WriteLine("Invalid choice. Please choose Rock (r), Paper (p), or Scissors (s): ");
+                userChoice = Console.ReadLine()?.ToLower();
+            }
+
+            // Map user choice to full word
+            if (userChoice == "r") userChoice = "Rock";
+            else if (userChoice == "p") userChoice = "Paper";
+            else if (userChoice == "s") userChoice = "Scissors";
+
+            // Generate computer's choice
+            string[] choices = { "Rock", "Paper", "Scissors" };
+            Random random = new Random();
+            string computerChoice = choices[random.Next(choices.Length)];
+
+            // Compare choices and determine the winner
+            Console.WriteLine($"Your choice: {userChoice}");
+            Console.WriteLine($"Computer's choice: {computerChoice}");
+
+            if (userChoice == computerChoice)
+            {
+                Console.WriteLine("It's a Tie!");
+            }
+            else if ((userChoice == "Rock" && computerChoice == "Scissors") ||
+                     (userChoice == "Paper" && computerChoice == "Rock") ||
+                     (userChoice == "Scissors" && computerChoice == "Paper"))
+            {
+                Console.WriteLine("You Win!");
+            }
+            else
+            {
+                Console.WriteLine("Computer Wins!");
+            }
+
+            // Ask for restart or quit
+            Console.WriteLine("Do you want to play again? (yes/no): ");
+            string playAgain = Console.ReadLine()?.ToLower();
+
+            if (playAgain != "yes")
+            {
+                Console.WriteLine("Thanks for playing! Goodbye!");
+                break;
+            }
+
+            Console.Clear(); // Clear the console for a cleaner display in the next round
+        }
+    }
+}
+This code includes input validation, maps the user's choice to the full word, generates a random choice for the computer, compares the choices, and displays the result. The player can choose to play again or quit.

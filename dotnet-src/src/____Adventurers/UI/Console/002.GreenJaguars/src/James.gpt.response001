@@ -1,0 +1,39 @@
+Building a Rock, Paper, Scissors game as a .NET C# console application is a great project for practicing programming fundamentals. Here are some pieces of advice and considerations to keep in mind before you start:
+
+### 1. Understand the Game Logic
+Ensure that all team members understand the basic rules of Rock, Paper, Scissors, and how to determine the winner in each round. This understanding is crucial for implementing the game logic correctly.
+
+### 2. Plan Your Application Structure
+- **Decide on the Application Flow:** Sketch out how the application will run, from start to finish. Consider how the game will start, how turns will be taken, how the winner will be decided, and how the game will end or restart.
+- **Object-Oriented Design:** Consider using classes and objects to represent different components of your game, such as the players, the moves (rock, paper, scissors), and the game logic itself.
+
+### 3. User Interface Design
+Since this is a console application, think about how you will present the game to the user through text. Plan how you will:
+- Display options to the user
+- Collect user inputs
+- Show game results and messages
+
+### 4. Input Validation
+Ensure that the user inputs are validated properly. For instance, if you expect the user to enter "rock", "paper", or "scissors", your application should handle unexpected inputs gracefully, such as misspellings or unrelated words.
+
+### 5. Implementing Game Logic
+- **Randomness for Computer Choice:** If your game includes playing against the computer, you'll need to use randomness to simulate the computer's choice.
+- **Determining the Winner:** Implement the logic to compare the player's choice against the computer's choice (or another player's choice) to determine the winner of each round.
+
+### 6. Testing
+- **Unit Testing:** Consider writing unit tests for your game logic to ensure that it behaves as expected in all scenarios.
+- **Playtesting:** Have team members and others playtest the game to find any unexpected bugs or user experience issues.
+
+### 7. Version Control
+Use a version control system like Git from the start. This will help you manage your codebase, especially with multiple people working on the project. It allows you to track changes, revert to previous versions if something goes wrong, and manage different features being developed in parallel.
+
+### 8. Code Readability and Comments
+Write clean, readable code and comment liberally. Since this is a team project, it's important that everyone can understand what each part of the code is supposed to do. This is especially important for future maintenance or expansion of the project.
+
+### 9. Scalability and Extensibility
+Consider designing your application in a way that it can be easily extended. For example, you might want to add more moves (like "lizard" and "Spock" from the extended version of the game), implement a scoring system, or add a GUI in the future.
+
+### 10. Enjoy the Process
+Remember that this project is not just about the end result but also about learning and working together as a team. Encourage open communication and collaboration among team members.
+
+By keeping these points in mind, you'll be well-prepared to start your project and overcome any challenges that arise during development. Good luck!

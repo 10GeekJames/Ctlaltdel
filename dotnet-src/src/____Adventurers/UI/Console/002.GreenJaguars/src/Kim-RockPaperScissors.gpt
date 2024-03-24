@@ -1,0 +1,162 @@
+// Random flavors of language - do on purpose
+
+GPT Question:
+
+Rock, paper, scissors game based on C# code
+
+Computer picks one from (R)ock, (P)aper, or (S)cissors
+Person chooses (R)ock, (P)aper, or (S)cissors
+
+Then based on options below a winner is known and displayed
+
+options
+1(R)ockwins, (S)cissors loses
+2. (P)aper wins, (R)ock loses
+3. (S)cissors wins, (P)aper loses
+
+OutPut from ChatGPT:
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Display options
+        Console.WriteLine("Welcome to Rock, Paper, Scissors!");
+        Console.WriteLine("Choose (R)ock, (P)aper, or (S)cissors");
+
+        // Get user's choice
+        Console.Write("Your choice: ");
+        char userChoice = char.ToUpper(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+
+        // Generate computer's choice
+        Random random = new Random();
+        char[] choices = { 'R', 'P', 'S' };
+        char computerChoice = choices[random.Next(0, 3)];
+
+        // Display computer's choice
+        Console.WriteLine("Computer's choice: " + computerChoice);
+
+        // Determine the winner
+        if (userChoice == computerChoice)
+        {
+            Console.WriteLine("It's a tie!");
+        }
+        else if ((userChoice == 'R' && computerChoice == 'S') ||
+                 (userChoice == 'P' && computerChoice == 'R') ||
+                 (userChoice == 'S' && computerChoice == 'P'))
+        {
+            Console.WriteLine("You win!");
+        }
+        else
+        {
+            Console.WriteLine("Computer wins!");
+        }
+    }
+}
+
+
+Input to ChatGPT:
+Same code but with more flavor language 
+
+OutPut from ChatGPT:
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Welcome message
+        Console.WriteLine("Welcome to the ultimate Rock, Paper, Scissors showdown!");
+        Console.WriteLine("Get ready to battle against the mighty computer!");
+
+        // Get user's choice
+        Console.WriteLine("Choose your weapon: (R)ock, (P)aper, or (S)cissors");
+        Console.Write("Your choice: ");
+        char userChoice = char.ToUpper(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+
+        // Generate computer's choice
+        Random random = new Random();
+        char[] choices = { 'R', 'P', 'S' };
+        char computerChoice = choices[random.Next(0, 3)];
+
+        // Display computer's choice
+        Console.WriteLine("Computer has made its move...");
+
+        // Determine the winner
+        string resultMessage = "";
+        if (userChoice == computerChoice)
+        {
+            resultMessage = "It's a tie! Both you and the computer are evenly matched!";
+        }
+        else if ((userChoice == 'R' && computerChoice == 'S') ||
+                 (userChoice == 'P' && computerChoice == 'R') ||
+                 (userChoice == 'S' && computerChoice == 'P'))
+        {
+            resultMessage = "Congratulations! You've emerged victorious against the mighty computer!";
+        }
+        else
+        {
+            resultMessage = "Alas! The computer has bested you this time. Better luck next time!";
+        }
+
+        // Display the result
+        Console.WriteLine("Computer chose: " + computerChoice);
+        Console.WriteLine(resultMessage);
+    }
+}
+
+
+Input to ChatGPT:
+More flavor  
+
+OutPut from ChatGPT:
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Greet the players
+        Console.WriteLine("Welcome to the ultimate showdown: Rock, Paper, Scissors!");
+
+        // Prompt the player to choose their weapon
+        Console.WriteLine("Prepare yourself, and choose wisely...");
+        Console.WriteLine("(R)ock, (P)aper, or (S)cissors?");
+
+        // Get the player's choice
+        Console.Write("Your choice: ");
+        char playerChoice = char.ToUpper(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+
+        // Let the computer make its move
+        Random random = new Random();
+        char[] choices = { 'R', 'P', 'S' };
+        char computerChoice = choices[random.Next(0, 3)];
+
+        // Reveal the computer's choice
+        Console.WriteLine("The computer has made its decision...");
+        Console.WriteLine("Computer chooses: " + computerChoice);
+
+        // Determine the outcome
+        if (playerChoice == computerChoice)
+        {
+            Console.WriteLine("It's a tie! A worthy match, indeed.");
+        }
+        else if ((playerChoice == 'R' && computerChoice == 'S') ||
+                 (playerChoice == 'P' && computerChoice == 'R') ||
+                 (playerChoice == 'S' && computerChoice == 'P'))
+        {
+            Console.WriteLine("Victory is yours! Your prowess is unmatched.");
+        }
+        else
+        {
+            Console.WriteLine("Alas, the computer has emerged victorious. A valiant effort, nonetheless.");
+        }
+    }
+}

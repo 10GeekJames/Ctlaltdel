@@ -1,0 +1,16 @@
+Hello and happy day to you GPT.
+
+I would like to build a c# console application, I am looking forward to your help.  Please just show me the code, no code comments.
+
+Collect a username
+Validate it with the user
+Collect how many sides the die (only allow for logically available die numbers up to 5000)
+Randomly roll the valid die
+Show "username, rolled a sided-die, and got a result" sort of format
+
+Please Provide 
+(a)lter name
+(c)hange die
+(r)eroll as default
+(s)tart over
+(e)xit or (q)uit

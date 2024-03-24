@@ -1,0 +1,27 @@
+Please write some C# code for Rock Paper Scissors
+   Pull username from the main game
+   Computer Picks 1 of 3 signs. These signs will be "R,P,S"
+   User picks 1 pf 3 signs. Use the propt of "Pick your sign: (R)ock, (P)aper, (S)cissors"
+   Decide Winner where R wins over S, P wins over R, and S wins over Paper
+   Display the Winner
+   Ask if they want to run again or return to the main game 
+
+
+
+
+
+
+
+#Please write some C$ code for Hang man
+    Load a library of words
+    Randome select words
+    Show the number of letters and a gallows
+    Ask the user to guess a letter
+    If correct say "yay" if incorrect so "OH no"
+    
+
+
+
+
+
+
